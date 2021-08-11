@@ -15,7 +15,7 @@ class CountdownTimer{
         this.targetDate = targetDate
     }
     calc = () => {
-        const currentDate = Date.now
+        const currentDate = Date.now()
         const time = this.targetDate - currentDate
         const days = Math.floor(time / (1000 * 60 * 60 * 24));
         const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -24,11 +24,13 @@ class CountdownTimer{
         this.refs.days.textContent = days < 10 ? `0${days}` : days
         this.refs.hours.textContent = hours < 10 ? `0${hours}` : hours
         this.refs.minutes.textContent = mins < 10 ? `0${mins}` : mins
-        this.refs.seconds.textContent = secs <10? `0${secs}` :secs
+        this.refs.seconds.textContent = secs < 10 ? `0${secs}` : secs
+        
+        console.log(currentDate);
     }
 
     timerStart = () => {
-        this.startDate = Date.now
+        this.startDate = Date.now()
         this.id=setInterval(this.calc, 1000)
     }
 }
