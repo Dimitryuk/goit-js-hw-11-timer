@@ -29,11 +29,7 @@ class CountdownTimer {
     this.startDate = Date.now();
     this.id = setInterval(this.calc, 1000);
 
-    const countdownText = `До даты ${this.targetDate} осталось:`;
-
-    document
-      .querySelector(".timer")
-      .insertAdjacentHTML("beforeend", countdownText);
+  
   };
 }
 
@@ -43,3 +39,8 @@ const backTimer = new CountdownTimer({
 });
 
 window.addEventListener("DOMContentLoaded", backTimer.timerStart);
+  const countdownText = `До даты ${backTimer.targetDate} осталось:`;
+
+    document
+      .querySelector(".timer")
+      .insertAdjacentHTML("beforebegin", countdownText);
